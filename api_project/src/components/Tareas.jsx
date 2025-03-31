@@ -5,10 +5,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 function Tareas() {
+  //ESTADOS 
   const [formVisible, setFormVisible] = useState(false);
   const [usuarios, setUsuarios] = useState([]);
   const [tareas, setTareas] = useState([]);
   const [tareaEditando, setTareaEditando] = useState(null);
+  //ARREGLO DE TARAEAS
   const [data, setData] = useState({
     titulo: "",
     descripcion: "",
@@ -17,6 +19,25 @@ function Tareas() {
   });
   const [nuevosDatos, setNuevosDatos] = useState({ ...data });
 
+//MOSTRAR/OCULTAR FORM
+  const showForm = () => setFormVisible(true);
+  const closeForm = () => {
+    setFormVisible(false);
+    setTareaEditando(null);
+    setNuevosDatos({ ...data });
+  };
+
+  //MANEJO DE EVENTOS: Ingreso de Tareas
+  const handleInput = (event) => {
+    const { name, value } = event.target;
+    if (tareaEditando) {
+      setNuevosDatos(prevData => ({ ...prevData, [name]: value }));
+    } else {
+      setData(prevData => ({ ...prevData, [name]: value }));
+    }
+  };
+
+  //BUSCAR PERSONAS REGISTRADAS
   useEffect(() => {
     getPersonas();
   }, []);
@@ -27,7 +48,7 @@ function Tareas() {
       .catch(err => console.error("Error obteniendo usuarios:", err));
   };
 
-
+//BUSCAR TAREAS
   useEffect(() => {
     getTareas();
   }, [])
@@ -38,22 +59,7 @@ function Tareas() {
       .catch(err => console.error("Error obteniendo usuarios:", err));
   };
 
-  const showForm = () => setFormVisible(true);
-  const closeForm = () => {
-    setFormVisible(false);
-    setTareaEditando(null);
-    setNuevosDatos({ ...data });
-  };
-
-  const handleInput = (event) => {
-    const { name, value } = event.target;
-    if (tareaEditando) {
-      setNuevosDatos(prevData => ({ ...prevData, [name]: value }));
-    } else {
-      setData(prevData => ({ ...prevData, [name]: value }));
-    }
-  };
-
+//CEAR TAREAS
   const postTareas = (event) => {
     event.preventDefault();
     axios.post("http://localhost:3001/tareas", data)
@@ -67,12 +73,14 @@ function Tareas() {
       });
   };
 
+  //MANEJO DE ACTUALIZACIOn
   const handleEditClick = (tarea) => {
     setTareaEditando(tarea._id);
     setNuevosDatos({ ...tarea });
     setFormVisible(true);
   };
 
+//ACTUALIZAR TAREAS
   const patchTarea = (event) => {
     event.preventDefault();
     axios.patch(`http://localhost:3001/tareas/${tareaEditando}`, nuevosDatos)
@@ -84,7 +92,7 @@ function Tareas() {
       })
       .catch(err => console.error("Error al actualizar la tarea:", err));
   };
-
+//ELIMINAr TAREA
   const deleteTarea = (id) => {
     axios.delete(`http://localhost:3001/tareas/${id}`)
       .then(() => setTareas(t => t.filter(tarea => tarea._id !== id)))
@@ -93,6 +101,7 @@ function Tareas() {
 
   return (
     <>
+    {/*MOSTRAR LISTA DE TAREAS ALMACENADAS*/}
       {!formVisible && (
         <div className="contenedor-tareas">
           <h2>Lista de Tareas</h2>
@@ -141,8 +150,7 @@ function Tareas() {
         </div>
       )}
 
-
-
+ {/*MOSTRAR FORM*/}
       {formVisible && (
         <div className="container-form">
           <div className="tareas-form">

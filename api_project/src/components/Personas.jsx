@@ -66,12 +66,14 @@ function Personas() {
       .catch(err => console.error("Error creando usuario:", err));
   };
 
+  //MANEJAR EVENTO DE ACTUALIZAR
   const handleEditClick = (usuario) => {
     setPersonaEditando(usuario._id);
     setNuevosDatos({ ...usuario });
     setFormVisible(true);
   };
 
+  //ACTUALIZAR PERSONA
   const patchPersona = (event) => {
     event.preventDefault();
     axios.patch(`http://localhost:3001/personas/${personaEditando}`, nuevosDatos)
@@ -84,6 +86,7 @@ function Personas() {
       .catch(err => console.error("Error al actualizar usuario:", err));
   };
 
+  //ELIMINAR PERSONA
   const deletePersona = (id) => {
     axios.delete(`http://localhost:3001/personas/${id}`)
       .then(() => setUsuarios(prev => prev.filter(usuario => usuario._id !== id)))
@@ -92,6 +95,7 @@ function Personas() {
 
   return (
     <>
+    {/*LISTAR PERSONAS */}
       {!formVisible && (
         <div className="contenedor-personas">
           <h2>Lista de Personas</h2>
