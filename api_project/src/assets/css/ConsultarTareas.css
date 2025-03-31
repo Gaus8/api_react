@@ -1,0 +1,73 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.input-opciones{
+  margin-top: 10px;
+  width: 600px;
+}
+
+.input-opciones select{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(146, 154, 146);
+  box-shadow: 5px 5px 5px rgba(122, 122, 122, 0.605);
+  color: rgb(82, 82, 82);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filtro{
+  margin-top:15px ;
+}
+
+.filtro h3{
+  margin-bottom: 10px;
+}
+
+.filtro input{
+  width: 30%;
+  padding: 4px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 2px solid rgb(70, 71, 70);
+  box-shadow: 5px 5px 5px rgba(122, 122, 122, 0.605);
+  cursor: pointer;
+}
+
+.filtro input{
+  width: 30%;
+  padding: 4px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 2px solid rgb(70, 71, 70);
+  box-shadow: 5px 5px 5px rgba(122, 122, 122, 0.605);
+  cursor: pointer;
+}
+
+.filtro select{
+  width: 30%;
+  padding: 4px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 2px solid rgb(70, 71, 70);
+  box-shadow: 5px 5px 5px rgba(122, 122, 122, 0.605);
+  cursor: pointer;
+}
+
+.filtro button{
+  padding: 10px;
+  border: none;
+  background-color: rgb(18, 188, 197);
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.filtro button:hover{
+  background-color: rgba(18, 188, 197, 0.526);
+}
+

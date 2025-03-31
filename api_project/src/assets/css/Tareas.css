@@ -1,0 +1,185 @@
+body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/*Form para crear usuarios*/
+
+.tareas-form {
+  width: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 2px solid rgb(146, 154, 146);
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1001;
+}
+
+.inputs-div{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.inputs-div input{
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 5px;
+  border: none;
+  border: 2px solid rgb(146, 154, 146);
+  outline: none;
+}
+
+.inputs-div label{
+ color: black;
+}
+
+.inputs-div textarea {
+  height: 100px;
+  border: 2px solid rgb(146, 154, 146);
+}
+
+ .input-fecha{
+  font-size: 16px;
+  padding: 15px;
+ }
+
+ .inputs-div select{
+  height: 30px;
+  border: 2px solid rgb(146, 154, 146);
+  border-radius: 5px;
+}
+
+.input-checkbox input {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+/*Estilo de los botones*/
+
+.final-buttons {
+  display: flex;
+  margin-left: 180px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px;
+}
+
+.final-buttons button{
+  display: flex;
+  margin-left: 30px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;   
+}
+
+.btn-close{
+  background: none;  
+  color: inherit;     
+  font-size: inherit; 
+  padding: 0;         
+  outline: none; 
+  color: rgb(225, 77, 8);
+}
+
+.btn-close:hover{
+  color: orange;
+  transition: 0.25s ease;
+}
+
+.btn-create{
+  font-size: inherit;         
+  outline: none; 
+  color: #FFF;
+  background-color: rgb(8, 192, 225);
+}
+
+.btn-create:hover{
+  background-color: rgba(8, 192, 225, 0.74);
+  transition: 0.25s ease;
+}
+
+.crear-btn{
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  margin-top: 20px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;   
+  background-color: rgba(8, 192, 225, 0.74);
+  color: #FFF;
+}
+
+.crear-btn:hover{
+  background-color: rgba(8, 192, 225, 0.492);
+  transition: 0.25s ease;
+}
+
+/*Lista de tareas*/
+.contenedor-tareas{
+  margin: auto;
+  position: relative;
+  top: 0;
+  text-align: center;
+  max-width: 1200px;
+}
+
+.contenedor-tareas ul {
+  display: grid;
+  justify-content: center;
+  align-items: stretch; /* 🔹 Asegura que todas las tareas tengan la misma altura */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.contenedor-tareas li {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border: 2px solid rgb(156, 159, 156);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(150, 150, 150, 0.255);
+  gap: 20px;
+}
+
+
+.lista-tarea-btn span{
+  margin-right: 20px;
+}
+
+.eliminar-btn:hover{
+  color: rgb(234, 27, 27);
+  transition: 0.25s ease;
+}
+
+.actualizar-btn:hover{
+  color: rgb(13, 178, 228);
+  transition: 0.25s ease;
+}
+
